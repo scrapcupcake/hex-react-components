@@ -8,17 +8,6 @@ const styles = {
     fontFamily: '"Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif',
   },
 
-  logo: {
-    width: 200,
-  },
-
-  link: {
-    color: '#1474f3',
-    textDecoration: 'none',
-    borderBottom: '1px solid #1474f3',
-    paddingBottom: 2,
-  },
-
   code: {
     fontSize: 15,
     fontWeight: 600,
@@ -43,59 +32,15 @@ export default class Welcome extends React.Component {
   render() {
     return (
       <div style={styles.main}>
-        <h1>Welcome to STORYBOOK</h1>
+        <h1>Welcome to the Storybook for Hex React Components</h1>
         <p>
-          This is a UI component dev environment for your app.
+          This is the UI component dev environment for this app.
         </p>
         <p>
-          We've added some basic stories inside the
-          {' '}
-          <code style={styles.code}>src/stories</code>
-          {' '}
-          directory.
-          <br />
-          A story is a single state of one or more UI components. You can have as many stories as you want.
-          <br />
-          (Basically a story is like a visual test case.)
+          This file and the other stories for this project are located in the {' '} <code style={styles.code}>/stories</code> {' '} directory.
         </p>
         <p>
-          See these sample
-          {' '}
-          <a style={styles.link} href="#" onClick={this.showApp.bind(this)}>stories</a>
-          {' '}
-          for a component called
-          {' '}
-          <code style={styles.code}>Button</code>
-          .
-        </p>
-        <p>
-          Just like that, you can add your own components as stories.
-          <br />
-          You can also edit those components and see changes right away.
-          <br />
-          (Try editing the <code style={styles.code}>Button</code> component
-          located at <code style={styles.code}>src/stories/Button.js</code>.)
-        </p>
-        <p>
-          This is just one thing you can do with Storybook.
-          <br />
-          Have a look at the
-          {' '}
-          <a style={styles.link} href="https://github.com/storybooks/storybook" target="_blank">
-            Storybook
-          </a>
-          {' '}
-          repo for more information.
-        </p>
-        <p style={styles.note}>
-          <b>NOTE:</b>
-          <br />
-          Have a look at the
-          {' '}
-          <code style={styles.code}>.storybook/webpack.config.js</code>
-          {' '}
-          to add webpack
-          loaders and plugins you are using in this project.
+          A story is a single state of one or more UI components. Each represents a visual test case.
         </p>
       </div>
     );
