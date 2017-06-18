@@ -18,8 +18,8 @@ export default class HexTile extends Component {
   render() {
       this.state = {};
     //TODO: Remove and replace with a console.warn for unknown emoji
-    let emojiCode = this.props.emoji || (this.props.pos?this.props.pos.emoji:undefined) || "poop";
-    emojiCode = nodeMoji.get(`:${emojiCode}:`);
+    let emojiCode = this.props.emoji || (this.props.pos?this.props.pos.emoji:undefined) || undefined;
+    emojiCode = emojiCode? nodeMoji.get(`:${emojiCode}:`) : '';
     let layout = !!this.props.layout ? this.props.layout : Layout(layout_flat, Point(1, 1), Point(0, 0));
     let posTest = this.props.pos || new Hex(0,0,0);
     let posData = hex_to_pixel(layout, posTest);

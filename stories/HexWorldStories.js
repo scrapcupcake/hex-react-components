@@ -6,7 +6,8 @@ import { storiesOf } from '@storybook/react';
 import {HexMap, HexTile} from "../src/app/components/Hex";
 import {hexmap_values} from 'hexs6';
 
-let hexWorld = hexWorldReducer({},{type:"init"});
+let hexWorld = hexWorldReducer({radius: 5},{type:"init"});
+
 
 console.log("My Hex world is?",hexWorld);
 
@@ -19,5 +20,16 @@ top: 150px;
 `
 
 
-export default storiesOf("HexWorlds", module)
+let stories = storiesOf("HexWorlds", module)
 .add("init", () => <HexMapCenterWrap><HexMap cells={hexmap_values(hexWorld.cells)} radius={2}/></HexMapCenterWrap>);
+
+let stepsCount = 0;
+let currentHexWorld = hexWorld;
+while(stepsCount < 10){
+    let nextHexWorld = hexWorldReducer(currentHexWorld,{type:"advance"});
+    stories.add(`steps ${stepsCount}`, () => <HexMapCenterWrap><HexMap cells={hexmap_values(nextHexWorld.cells)} radius={2}/></HexMapCenterWrap>);
+    currentHexWorld = nextHexWorld;
+    stepsCount++;
+}
+
+export default stories;

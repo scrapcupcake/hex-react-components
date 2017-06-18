@@ -28,8 +28,9 @@ export function hexWorldReducer(state={}, action={type:"",payload:{}}){
                 return hexCellReducer(c, {type:"advance", payload: neighbors});
             }).reduce(hex_array_to_map_reducer, {});
             
-            let newState = Object.assign(state, {cells:nextCells}); //And before here.
-            //console.log("Eh?", state.cells === newState.cells);
+            let newState = Object.assign({}, state ); //And before here.
+            newState.cells = nextCells;
+            console.log("Eh?", state.cells === newState.cells);
             return newState;
         default:
         return state;
@@ -38,8 +39,8 @@ export function hexWorldReducer(state={}, action={type:"",payload:{}}){
 
 let aliveCheck = (emoji) => {
     switch(emoji){
-        case ":sparkles:":
-        case ":sparkle:":
+        case "sparkles":
+        case "sparkle":
             return true;
         case "":
         default:
@@ -55,7 +56,7 @@ export function hexCellReducer(state={q:Infinity,r:Infinity,s:Infinity}, action=
         case "advance":
             let neighbors = action.payload;
             if(neighbors.length < 6){
-                 return Object.assign(state,{emoji:""}); //Edges die
+                 return Object.assign({},state,{emoji:""}); //Edges die
             }
             //console.log(`${state.q},${state.r},${state.s} with`, neighbors);
             let aliveNeighbors = neighbors.reduce((acc,cur) => { return acc + ( aliveCheck(cur.emoji)?0:1);},0);
@@ -63,16 +64,16 @@ export function hexCellReducer(state={q:Infinity,r:Infinity,s:Infinity}, action=
                 switch(aliveNeighbors){
                     case 1:
                     case 2:                
-                        return Object.assign(state,{emoji:"sparkles"}); //Enough people to just hang out, be cool
+                        return Object.assign({},state,{emoji:"sparkles"}); //Enough people to just hang out, be cool
                     default:
-                        return Object.assign(state,{emoji:""}); //Dead
+                        return Object.assign({},state,{emoji:""}); //Dead
                 }
             }else{
                 switch(6-aliveNeighbors){ //Dead neighbors
                     case 2:
-                        return Object.assign(state,{emoji:"sparkle"}); //Just the right number of blanks and a new ship forms
+                        return Object.assign({},state,{emoji:"sparkle"}); //Just the right number of blanks and a new ship forms
                     default:
-                        return Object.assign(state,{emoji:""}); //Still dead
+                        return Object.assign({},state,{emoji:""}); //Still dead
                 }
             }
 
