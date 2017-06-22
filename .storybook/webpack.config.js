@@ -12,6 +12,19 @@ module.exports = {
   ],
   module: {
     loaders: [
+      {
+        test: /\.(css)$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+              sourceMap: true
+            }
+          }
+        ]
+      }
       // add your custom loaders.
     ],
   },

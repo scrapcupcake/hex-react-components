@@ -1,5 +1,8 @@
 import React from 'react';
-import {HexMap, HexMapStateControls} from '../src/app/components/Hex';
+import HexMap from '../src/app/components/Hex';
+import HexMapStateControls from '../src/app/components/HexMapStateControls';
+import SimSpeedControls from '../src/app/components/SimSpeedControls';
+import HexLife from '../src/app/components/HexLife';
 
 const relativePosStyles = `
             .pinterest-widget--board {
@@ -30,7 +33,9 @@ export default class ProjectDemo extends React.Component {
         </header>
         <main>
             <nav>
-                <HexMapStateControls/>
+                <HexMapStateControls />
+                <HexLife />
+                <SimSpeedControls />
             </nav>
             <HexMap radius="4"/>
         </main>

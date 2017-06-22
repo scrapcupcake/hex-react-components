@@ -3,7 +3,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { storiesOf } from '@storybook/react';
-import {HexMap, HexTile} from "../src/app/components/Hex";
+import HexMap from '../src/app/components/Hex';
+import HexTile from '../src/app/components/HexTile';
 import {hexmap_values} from 'hexs6';
 
 let hexWorld = hexWorldReducer({radius: 5},{type:"init"});

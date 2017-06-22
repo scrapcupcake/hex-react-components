@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 
-import {HexTile} from "../src/app/components/Hex";
+import HexTile from "../src/app/components/HexTile";
 
 export default storiesOf('Hexes', module).
 add('200x200 with emoji', () => <HexTile height="200" width="200" emoji="heart" />).

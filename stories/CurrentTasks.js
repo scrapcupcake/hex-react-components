@@ -1,8 +1,11 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import { storiesOf } from '@storybook/react';
 
-const styleOverrides = `
+
+
+const Wrapper = styled.section`
             li {
                 color: #A0A000;
                 list-style-type:square;
@@ -39,36 +42,34 @@ const styleOverrides = `
 
 export default class CurrentTasks extends React.Component {
     render(){
-        return <section>
-            <style>{styleOverrides}</style>
+        return <Wrapper>
             <header>Immediate Project Goals</header>
             <main>
                 <ul>
-                    <li className="checked">Radius 2 on Radius 3 Wraparound Hex Map Story</li>
-                    <li className="checked">HexTiles content children of a HexMap inherit layout and cell-size from HexMap</li>
-                    <li className="checked">Basic init HexWorld rendering</li>
-                    <li className="checked">Fix HexWorld cell mutations?</li>
+                    <li className="checked">Hex Petri Low Fidelity Wireframes</li>
+                    <li className="checked">Hex Petri High Fidelity Wireframes</li>
+                    <li>Transfer Wireframes to React + styled</li>
                     <li>HexWorld integration with redux & HexWorld animation rendering</li>
+                    <li>Basic HexWorld state controls: Radius, tick forward, autorun ticks, *map wraparound*</li>
+                    <li>Advanced Hexworld Design with multiple populations, energy levels</li>
+                    <li>Advanced Hexworld Visuals: Attack/Action Animations, Death/Birth animations</li>
+                    <li>Advanced Hexworld UX/Controls: Define Populations, display/save/set RNG seed/save config</li>
                     
-                    <li>Watch Egghead React video lessons
+                    <li>Read Articles
                         <ul>
-                        <li className="checked">
-                        <a href="https://egghead.io/courses/building-react-applications-with-idiomatic-redux">
-                            The idiomatic redux course
-                        </a>
-                        <a href="https://egghead.io/lessons/javascript-redux-filtering-redux-state-with-react-router-params">
-                            starting at this lesson left off from yesterday
-                        </a></li>
-                        <li className="checked"><a href="https://egghead.io/courses/build-your-first-production-quality-react-app">
-                        This production quality react app course
-                        </a></li>
-                        <li><a href="https://egghead.io/lessons/javascript-install-development-tools-for-preact">
-                        This Preact (p[re)act] course, a lightweight preboot react.
-                        </a></li>
+                        <li>
+                            <a href="https://medium.com/@chenglou/react-motion-and-animated-4b3edf671cba">This article by the creator of React-Motion</a>
+                        </li>
+                        <li>
+                            <a href="https://react.rocks/tag/Animation?show=40">Explore these animation examples</a>
+                        </li>
+                        <li>
+                            <a href="https://facebook.github.io/react/docs/animation.html">The docs</a>
+                        </li>
                     </ul>
                     </li>
                 </ul>
             </main>
-        </section>
+        </Wrapper>
     }
 }

@@ -2,7 +2,8 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 
-import {HexMap, HexTile} from "../src/app/components/Hex";
+import HexMap from "../src/app/components/Hex";
+import HexTile from "../src/app/components/HexTile";
 import styled from 'styled-components';
 import {Hex, Point, hex_add, hex_direction_names_horizontal, hex_direction_names_vertical, hex_direction,
      hex_stringify, Layout, layout_flat, layout_pointy, hex_rotate_left, hex_rotate_right,

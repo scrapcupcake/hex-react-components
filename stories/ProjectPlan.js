@@ -55,7 +55,6 @@ export default class ProjectPlan extends React.Component {
           </li>
           </ul>
           <p>Please see the Project Demo for an example of the project at present.</p>
-          <section className=""></section>
         </main>
         <footer>
           <style>{styleOverrides}</style>
